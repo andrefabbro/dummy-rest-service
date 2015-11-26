@@ -14,5 +14,6 @@ Projeto exemplo de um microserviço que expõe um único método via REST, o qua
 
 Fazer um GET para o serviço /relatorio/processar/{report_id}/secao/{section}
 Exemplo:
+
     curl -i http://localhost:9090/relatorio/processar/1000/secao/summary
 
