@@ -10,41 +10,22 @@ public class Relatorio {
 
     @GET
     @Produces({"text/plain"})
-    @Path("/process/{id}")
-    public String process(@PathParam("id") int reportId) {
+    @Path("/processar/{id}/secao/{secao}")
+    public String processarSecao(@PathParam("id") int reportId,
+                                 @PathParam("secao") String secao) {
 
-        int sleepTime = 5000;
-
-        try {
-
-            System.out.println(Thread.currentThread().getId()
-                    + ": Processando relatorio id " + reportId);
-
-            Thread.currentThread();
-            Thread.sleep(sleepTime);
-
-        } catch (Exception e) {
-            return "-1";
-        }
-
-        return "1";
-    }
-
-    @GET
-    @Produces({"text/plain"})
-    @Path("/process/{id}/section/{section}")
-    public String processSection(@PathParam("id") int reportId,
-                                 @PathParam("section") String section) {
-
-        int sleepTime = 5000;
+        int tempoDeEspera = 5000;
 
         try {
-            System.out.println(Thread.currentThread().getId()
-                    + ": Processing relatorio id " + reportId + " sessao "
-                    + section);
+
+            long start = System.currentTimeMillis();
+
+            System.out.println(start + " - " + Thread.currentThread().getId()
+                    + ": Processando relatorio id " + reportId + " secao "
+                    + secao);
 
             Thread.currentThread();
-            Thread.sleep(sleepTime);
+            Thread.sleep(tempoDeEspera);
 
         } catch (Exception e) {
             return "-1";

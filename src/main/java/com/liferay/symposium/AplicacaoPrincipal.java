@@ -1,11 +1,11 @@
 package com.liferay.symposium;
 
+import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.server.ServerProperties;
+import org.glassfish.jersey.servlet.ServletContainer;
 
-/**
- * Created by andrefabbro on 11/2/15.
- */
 public class AplicacaoPrincipal {
 
     public static void main(final String[] args) throws Exception {
@@ -21,11 +21,7 @@ public class AplicacaoPrincipal {
         context.addServlet(servletHolder, "/*");
 
         server.setHandler(context);
-
-
         server.start();
-
-        
         server.join();
     }
 
